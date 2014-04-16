@@ -11,9 +11,21 @@ body
 	font-size 16px
 figure
 	margin 0
+img
+	vertical-align top
+.action
+	color white
+	font-size 1.2em
+	margin-right .5em
+	// (last-child) Pseudoclase que hace referencia al último elemento ".action"
+	&:last-child
+		margin-right 0
 .actions
+	background rgba(black,.3)
+	bottom 0
+	left 0
 	position absolute
-	top 0
+	right 0
 .author
 	color gris_claro
 .border-bottom
@@ -24,6 +36,10 @@ figure
 	margin-top -10px
 	position absolute
 	top 50%
+/*
+Los elementos de tipo "block" se centran solamente
+	si tienen un ancho fijo. Se centran con "margin: auto".
+*/
 .center-block
 	margin 0 auto
 .center-text
@@ -45,11 +61,15 @@ figure
 	display none
 .name
 	color gris_oscuro
+.padding
+	padding 1em
 .playing
 	&.small
 		width 20em
 .relative
 	position relative
+.right-text
+	text-align right
 .song
 	display inline-block
 	font-size 1rem
