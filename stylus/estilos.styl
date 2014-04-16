@@ -3,6 +3,7 @@
 
 gris_oscuro = #333333
 gris_claro = #818181
+rojo = #BD255B
 
 a
 	text-decoration none
@@ -20,6 +21,8 @@ img
 	// (last-child) Pseudoclase que hace referencia al último elemento ".action"
 	&:last-child
 		margin-right 0
+	&.gray
+		color gris_claro
 .actions
 	background rgba(black,.3)
 	bottom 0
@@ -63,9 +66,43 @@ Los elementos de tipo "block" se centran solamente
 	color gris_oscuro
 .padding
 	padding 1em
+.padding-tb
+	padding 1em 0
 .playing
 	&.small
 		width 20em
+.progress
+	margin 1em 0
+	position relative
+	.min	
+	.max
+		font-size .8em
+		position absolute
+		top -5px
+	.min
+		left 0
+	.max
+		right 0
+	.total
+		background gris_claro
+		border-radius 5px
+		height 5px
+		margin 0 auto
+		width 75%
+	.state
+		background rojo
+		border-radius 5px
+		height 5px
+		position relative
+		width 30%
+	.circle
+		background gris_oscuro
+		border-radius 50%
+		height 10px
+		position absolute
+		right 0
+		top -2.5px
+		width 10px
 .relative
 	position relative
 .right-text
