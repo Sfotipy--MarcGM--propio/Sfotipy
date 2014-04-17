@@ -118,3 +118,25 @@ Los elementos de tipo "block" se centran solamente
 		margin-right 0
 	p
 		margin .5em 0
+
+@media screen and (min-width:480px)
+	.image
+		img
+			width 100%
+			height auto
+	.playing
+		&.medium
+			width auto
+	.song
+		&:nth-child(even)
+			margin-right 1em
+
+@media screen and (min-width:1000px)
+	.button-menu
+		display none
+	.header
+		.title
+			display none
+	.image
+		img
+			width auto
