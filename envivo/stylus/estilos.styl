@@ -1,0 +1,263 @@
+@import "nib"
+@import "normalize.styl"
+@import "fonts.styl"
+
+vendor-prefixes = webkit o ms moz official
+
+gris_claro = #818181
+gris_mas_claro = #F0F0F0
+gris_oscuro = #333333
+rojo = #BD255B
+
+//Esto es un mixing en Stylus:
+/*animacion(parametro)
+	-webkit-animation parametro
+	-moz-animation parametro
+	-o-animation parametro
+	-ms-animation parametro
+	animation parametro*/
+
+a
+	text-decoration none
+body
+	font-family 'Varela Round', sans-serif
+	font-size 16px
+figure
+	margin 0
+img
+	vertical-align top
+ul
+	margin 0
+	padding 0
+.action
+	color white
+	font-size 1.2em
+	margin-right .5em
+	// (last-child) Pseudoclase que hace referencia al último elemento ".action"
+	&:last-child
+		margin-right 0
+	&.gray
+		color gris_claro
+.actions
+	background rgba(black,.3)
+	bottom 0
+	left 0
+	position absolute
+	right 0
+.author
+	color gris_claro
+.avatar
+		width 38px
+		height 38px
+.border-bottom
+	border-bottom 1px solid gris_claro 
+.button-menu
+	color gris_oscuro
+	left .5em
+	margin-top -10px
+	position absolute
+	top 50%
+/*
+Los elementos de tipo "block" se centran solamente
+	si tienen un ancho fijo. Se centran con "margin: auto".
+*/
+.center-block
+	margin 0 auto
+.center-text
+	text-align center
+.close-icon
+	color gris_claro
+	font-size 1.2em
+	position absolute
+	right .5em
+	top .5em
+.container
+	font-size 0
+	padding 1.4rem
+	text-align center
+.header
+	height 3.5em
+	.title
+		font-size 1.1em
+		line-height 3.5em
+		margin 0
+		text-align center
+.input
+	border 1px solid gris_claro
+	border-radius 5px
+	height 2.5em
+	padding 0 1em 0 2em
+.isotipo
+		width 122px
+.left
+	float left
+.logo
+		background white
+		display none
+		overflow hidden
+		padding 1.3em 0
+.menu
+	display none
+.name
+	color gris_oscuro
+.padding
+	padding 1em
+.padding-tb
+	padding 1em 0
+.playing
+	&.small
+		margin 0 auto
+		width 20em
+.playlist
+		border-left 1px solid gris_claro
+		display none
+		padding 0 2em
+		width 22em
+		.action
+			font-size .8em
+		.item
+			padding 1em 0
+		.list
+			list-style none
+.progress
+	margin 1em 0
+	position relative
+	.min	
+	.max
+		font-size .8em
+		position absolute
+		top -5px
+	.min
+		left 0
+	.max
+		right 0
+	.total
+		background gris_claro
+		border-radius 5px
+		height 5px
+		margin 0 auto
+		width 75%
+	.state
+		animation 10s state infinite linear
+		background rojo
+		border-radius 5px
+		height 5px
+		position relative
+		width 30%
+	.circle
+		animation 1s circle infinite
+		background gris_oscuro
+		border-radius 50%
+		height 10px
+		position absolute
+		right 0
+		top -2.5px
+		width 10px
+@keyframes state
+	0%
+		width 0%
+	100%
+		width 100%
+@keyframes circle
+	0%
+		transform scale(1)
+	100%
+		opacity 0
+		transform scale(2)
+.relative
+	position relative
+.right
+	float right
+.right-text
+	text-align right
+.round
+	border-radius 50%
+	overflow hidden
+.search-icon
+	color gris_claro
+	left .5em
+	position absolute
+	top .8em
+.song
+	display inline-block
+	font-size 1rem
+	margin-bottom 1em
+	margin-right 1em
+	text-align left
+	width 8rem
+	&:nth-child(even)
+		margin-right 0
+	p
+		margin .5em 0
+.username
+		color gris_claro
+		margin-left .5em
+		position relative
+		top 9px
+		&:after
+			border-left 7px solid transparent
+			border-right 7px solid transparent
+			border-top 9px solid gris_claro
+			content ""
+			display inline-block
+			margin-right .4em
+.wrap
+	width 1000px
+
+@media screen and (min-width:480px)
+	.image
+		img
+			width 100%
+			height auto
+	.logo
+		display none
+	.playing
+		&.medium
+			width auto
+	.playlist
+		display none
+	.song
+		&:nth-child(even)
+			margin-right 1em
+
+@media screen and (min-width:1000px)
+	body
+		background gris_mas_claro
+	.button-menu
+		display none
+	.header
+		border none
+		height auto
+		.title
+			display none
+	.menu
+		background gris_mas_claro
+		border-top 1px solid gris_claro
+		display block
+		overflow hidden
+		.item
+			float left
+			list-style none
+			a
+				border-top 5px solid transparent
+				color gris_oscuro
+				cursor pointer
+				display block
+				padding 1em
+				text-transform uppercase
+				&:hover
+					border-top 5px solid gris_claro
+	.music
+		float left
+		width 32.5em
+		.description
+			display none
+	.playing
+		padding-top 1.3em
+		&.large
+			margin 0 auto
+			overflow hidden
+			width 62.5em
+	.playlist
+	.logo
+		display block
