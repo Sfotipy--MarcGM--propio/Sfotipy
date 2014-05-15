@@ -5,9 +5,13 @@ Sfotipy = {};
 Sfotipy.Song = Backbone.Model.extend({});
 //Clase "song" extiende de la clase "View" (por lo tanto es una vista).
 Sfotipy.SongView = Backbone.View.extend({
-	//La propiedad "events", contendrá los eventos de esta interfaz (solo los eventos de esta vista que estamos renderizando(la de las canciones)).
+	//La propiedad "events", contendrá el mapeo de los eventos de esta interfaz (solo los eventos de esta vista que estamos renderizando(la de las canciones)).
 	events: {
-
+		/*
+			La estructura de eventos en Backbone es la siguiente:
+				'evento selector': 'función_a_ejecutar'
+		*/
+		'click .action.icon-add': 'add'
 	},
 
 	tagName: 'li',
