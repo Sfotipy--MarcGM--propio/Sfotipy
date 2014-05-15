@@ -3,6 +3,10 @@ Sfotipy = {};
 
 //Clase "song"(está dentro del NameSpace "Sfotipy") y extiende de la clase "Model".
 Sfotipy.Song = Backbone.Model.extend({});
+//Estamos creando una colección de Backbone. Esta colección contendrá objetos de tipo "Song".
+Sfotipy.Songs = Backbone.Collection.extend({
+	model: Sfotipy.Song
+});
 //Clase "song" extiende de la clase "View" (por lo tanto es una vista).
 Sfotipy.SongView = Backbone.View.extend({
 	//La propiedad "events", contendrá el mapeo de los eventos de esta interfaz (solo los eventos de esta vista que estamos renderizando(la de las canciones)).
@@ -11,6 +15,7 @@ Sfotipy.SongView = Backbone.View.extend({
 			La estructura de eventos en Backbone es la siguiente:
 				'evento selector': 'función_a_ejecutar'
 		*/
+		//Cuando se haga click a los elementos con clases ".action" y ".icon-add", ejecutar la función "add".
 		'click .action.icon-add': 'add'
 	},
 
@@ -28,6 +33,10 @@ Sfotipy.SongView = Backbone.View.extend({
 				(Backbone, permite hacer eso, con JQuery.)
 		*/
 		this.$el.html(html);
+	},
+	//La función "add", es llamada por un evento y recibe como argumento, el evento como tal (en este caso, "click").
+	add: function(e){
+		alert(this.model.get("name"));
 	}
 });
 
