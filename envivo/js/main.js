@@ -5,19 +5,25 @@ Sfotipy = {};
 Sfotipy.Song = Backbone.Model.extend({});
 //Clase "song" extiende de la clase "View" (por lo tanto es una vista).
 Sfotipy.SongView = Backbone.View.extend({
+	//La propiedad "events", contendrá los eventos de esta interfaz (solo los eventos de esta vista que estamos renderizando(la de las canciones)).
+	events: {
+
+	},
+
 	tagName: 'li',
 	className: 'item border-bottom',
 
+	//La variable "template", contendrá la compilación del template con id "song-template"(del archivo "index.html") con Handlebars.
+	template: Handlebars.compile($("#song-template").html()),
+
 	//La función "render" se ejecuta cuando se vaya a visualizar esta vista en pantalla.
 	render: function(){
-		var song = this.model;
-		var name = song.get('name');
-		var author = song.get('author');
+		var html = this.template(this.model.toJSON());
 		/*
-		Al anteponer "$" a "el", lo que estamos haciendo es decir a Backbone que vamos a utilizar una función JQuery.
-		(Backbone, permite hacer eso, con JQuery.)
+			Al anteponer "$" a "el", lo que estamos haciendo es decir a Backbone que vamos a utilizar una función JQuery.
+				(Backbone, permite hacer eso, con JQuery.)
 		*/
-		this.$el.html("<span>"+author+"</span> - <span>"+name+"</span>");
+		this.$el.html(html);
 	}
 });
 
