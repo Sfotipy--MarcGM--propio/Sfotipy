@@ -25,6 +25,15 @@ Sfotipy.SongView = Backbone.View.extend({
 	//La variable "template", contendrá la compilación del template con id "song-template"(del archivo "index.html") con Handlebars.
 	template: Handlebars.compile($("#song-template").html()),
 
+	//Este método, es llamado cada vez que se instáncia una vista o un modelo. Es un método predefinido de Backbone.
+	initialize: function(){
+		/*
+			Esta función "escucha" el modelo asociado a la vista, escucha el evento "change", ejecutará la función "this.render" (y también le decimos el scope donde se ejecutará la función(this)).
+		 	
+		 	this.listenTo(QUE_ESCUCHA, QUE_EVENTO_ESCUCHA, FUNCIÓN_QUE_EJECUTARÁ, SCOPE_DONDE_SE_EJECUTARÁ_LA_FUNCIÓN)
+		 */
+		this.listenTo(this.model, "change", this.render, this);
+	},
 	//La función "render" se ejecuta cuando se vaya a visualizar esta vista en pantalla.
 	render: function(){
 		var html = this.template(this.model.toJSON());
