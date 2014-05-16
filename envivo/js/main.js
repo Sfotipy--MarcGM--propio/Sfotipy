@@ -50,6 +50,41 @@ Sfotipy.SongView = Backbone.View.extend({
 });
 
 /*
+	Creamos un objeto literal donde manipularemos las rutas.
+	Las rutas, son lo que va después del nombre de dominió en las URL's.
+*/
+Sfotipy.Router = Backbone.Router.extend({
+	routes: {
+		//Cuando no se pase ningún texto más(aparte de la parte principal de la url), ejecutará la función index.
+		"": "index",
+		/*
+			Cuando se pase la ruta "/album/:name"(donde ':name' hace referencia al nombre del album (y sin los dos puntos)),
+				se ejecutará la función "album", pasándole un parámetro que se llamará "name".
+			Los dos puntos (":"), indica que es un parámetro y que es "dinámico".
+		*/
+		"album/:name": "album",
+		"profile/:username": "profile",
+	},
+
+	//Esta función, se ejecutará al poner el nombre de dominio (si  ninguna ruta).
+	index: function(){
+		console.log("Estoy en el index");
+	},
+	//Esta función, se ejecutará al poner "/album/nombre_del_album"(donde "nombre_del_album", es el nombre del album) después del nombre de dominio.
+	album: function(name){
+		console.log("Album: "+name);
+	},
+	profile: function(username){
+		console.log("Username: "+username);
+	}
+});
+
+//Es una buena práctica utilizar la variable "app" para que contenga la instáncia de rutas (es la parte principal de la aplicación).
+Sfotipy.app = new Sfotipy.Router();
+//Activa el "history" de Backbone para que sea posible navegar.
+Backbone.history.start();
+
+/*
 	Creamos un objeto con nombre "Sfotypy" en el window(entorno global de Javascript)
 		y le decimos que ese objeto sea igual al objeto "Sfotipy" creado anteriormente (el que acabamos de crear).
  */
